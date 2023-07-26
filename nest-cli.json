@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/vid-gateway/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/vid-gateway/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/vid-gateway",
+  "projects": {
+    "vid-gateway": {
+      "type": "application",
+      "root": "apps/vid-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-gateway/tsconfig.app.json"
+      }
+    },
+    "vid-browse": {
+      "type": "application",
+      "root": "apps/vid-browse",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-browse/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-browse/tsconfig.app.json"
+      }
+    },
+    "vid-search": {
+      "type": "application",
+      "root": "apps/vid-search",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-search/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-search/tsconfig.app.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { VidSearchController } from './vid-search.controller';
+import { VidSearchService } from './vid-search.service';
+
+describe('VidSearchController', () => {
+  let vidSearchController: VidSearchController;
+
+  beforeEach(async () => {
+    const app: TestingModule = await Test.createTestingModule({
+      controllers: [VidSearchController],
+      providers: [VidSearchService],
+    }).compile();
+
+    vidSearchController = app.get<VidSearchController>(VidSearchController);
+  });
+
+  describe('root', () => {
+    it('should return "Hello World!"', () => {
+      expect(vidSearchController.getHello()).toBe('Hello World!');
+    });
+  });
+});
