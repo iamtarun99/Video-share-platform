@@ -6,6 +6,7 @@ export const VideoSchema = new mongoose.Schema({
     description: { type: String, required: true },
     tags: { type: [String], required: true },
     thumbnailUrl: { type: String, required: true },
+    videoUrl: { type: String, required: false }
   });
   
 export const VideoModel = mongoose.model<Video>('Video', VideoSchema);

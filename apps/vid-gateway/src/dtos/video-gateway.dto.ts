@@ -4,5 +4,5 @@ export interface Video {
     description: string;
     tags: string[];
     thumbnailUrl: string;
-    videoUrl?: string; // Add videoUrl property to the interface
+    videoUrl?: string;
   }
