@@ -1,0 +1,33 @@
+version: '1'
+services:
+  vid-gateway:
+    image: vid-gateway
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
+  vid-browse:
+    image: vid-browse
+    ports:
+      - "3001:3001"
+      - "3003:3003"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
+  vid-search:
+    image: vid-search
+    ports:
+      - "3002:3002"
+      - "3004:3004"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
+networks:
+  vid-network:
