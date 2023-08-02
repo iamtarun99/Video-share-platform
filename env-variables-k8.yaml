@@ -1,0 +1,12 @@
+#In K8, .env file cannot be used unlike docker compose. Hence this ConfigMap is deployed:
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-variables-k8
+data:
+  DB_USERNAME: ''
+  DB_PASSWORD: ''
+  HOSTNAME_BROWSE_SERVICE: 'vid-browse-service' #In docker use container name. In k8, use k8 service name. use localhost for running in local
+  HOSTNAME_SEARCH_SERVICE: 'vid-search-service' #This is container name which gets dynamically resolved to IP address. use localhost for running in local
+  # Add more environment variables as needed

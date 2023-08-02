@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vid-search-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vid-search
+  template:
+    metadata:
+      labels:
+        app: vid-search
+    spec:
+      containers:
+        - name: vid-search
+          image: vid-search:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3002
+          envFrom:
+            - configMapRef:
+                name: env-variables-k8

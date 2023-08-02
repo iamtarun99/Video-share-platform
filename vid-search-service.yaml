@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vid-search-service
+spec:
+  selector:
+    app: vid-search
+  ports:
+    - protocol: TCP
+      port: 3002  # Expose port 3002 for accessing vid-search
+      targetPort: 3002  # Use 3002 as the targetPort to match the containerPort of vid-search
+  type: NodePort
