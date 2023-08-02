@@ -8,9 +8,9 @@ Video Share and social media platform: A NestJS Monorepo project with Gateway an
 $ npm install
 ```
 
-## Set up .env file
-  -Set the credentials and parameters for given variables in .env file
-  
+## Set up credentials
+  -Set the credentials and parameters for given variables in .env file for local & docker, env-variables-k8.yml for kubernetes
+
 ## Running the app
 
 ```bash
