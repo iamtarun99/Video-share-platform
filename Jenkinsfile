@@ -22,12 +22,6 @@ pipeline {
 				withSonarQubeEnv('Sonarqube Scanner') {
 					sh '''
 					${scannerHome}/bin/sonar-scanner \
-					-D sonar.projectKey=vid-share-project \
-					-D sonar.projectName=vid-share-project \
-					-D sonar.projectVersion=1 \
-					-D sonar.sources=./apps \
-					-D sonar.test.inclusions=**/*.test.ts \
-					-D sonar.exclusions=**/node_modules/**
 					'''
 				}
 			}

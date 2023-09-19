@@ -6,11 +6,6 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 export class VidUserGqlResolver {
   constructor(private readonly vidUserGqlService: VidUserGqlService) {}
 
-  // @Query('user-graphql')
-  // async executeGraphQLQuery(query: string): Promise<any> {
-  //   // Process the incoming GraphQL query
-  //   return this.vidUserGqlService.executeGraphQLQuery(query);
-  // }
   @Query('users')
   async getUsers(): Promise<User[]> {
     return this.vidUserGqlService.findAll();

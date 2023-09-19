@@ -17,7 +17,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       // Use the 'forRoot' method with 'typeDefs' to specify your schema file
       typePaths: ['**/*.graphql'], // Adjust the path as needed
       definitions: {
-        path: join(process.cwd(), 'src/dtos/graphql.ts'),
+        path: join(process.cwd(), 'apps/vid-user-gql/src/dtos/vid-user.dto.ts'),
       },
       driver: ApolloDriver,
       playground: true
