@@ -15,7 +15,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(email: string, password: string): Promise<any> {
-    const user = await  firstValueFrom(this.authMS.send('validate-user',{email, password}));
+    const user = await firstValueFrom(this.authMS.send('validate-user-credentials',{email, password}));
     if (!user) {
         throw new UnauthorizedException('Invalid credentials.');
     }

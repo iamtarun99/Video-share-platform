@@ -16,4 +16,9 @@ export class VidUserController {
   async getProfile(user: any): Promise<User> {
     return this.vidUserService.getProfile(user);
   }
+
+  @MessagePattern('validate-user')
+  async validateUser(user: any): Promise<Partial<User>> {
+    return this.vidUserService.validateUser(user);
+  }
 }

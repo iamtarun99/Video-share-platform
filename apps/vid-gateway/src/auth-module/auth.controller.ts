@@ -28,8 +28,7 @@ export class AuthController {
 
   @Post('/login')
   @UseGuards(AuthGuard('local'))
-  async login(@Request() req: Request & {user: any}): Promise<any> {
-    console.log(req.user);
+  async login(@Request() req: Request & {user: any}): Promise<{token: string}> {
     return await firstValueFrom(this.authMS.send('login', req.user));
   }
 
@@ -41,7 +40,7 @@ export class AuthController {
 
   @Post('/user-graphql')
   async user(@Body('query') query: string): Promise<any> {
-    const res: any = await firstValueFrom(this.httpService.post(`http://${process.env.HOSTNAME_USER_GQL_SERVICE}:3010/graphql`, {query}));
+    const res = await firstValueFrom(this.httpService.post(`http://${process.env.HOSTNAME_USER_GQL_SERVICE}:3010/graphql`, {query}));
     return res?.data;
   }
 }

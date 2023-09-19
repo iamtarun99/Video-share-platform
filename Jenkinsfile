@@ -43,6 +43,21 @@ pipeline {
                         sh 'npm run build vid-search'
                     }
                 }
+                stage('auth-service') {
+                    steps {
+                        sh 'npm run build vid-auth'
+                    }
+                }
+                stage('user-service') {
+                    steps {
+                        sh 'npm run build vid-user'
+                    }
+                }
+                stage('user-gql-service') {
+                    steps {
+                        sh 'npm run build vid-user-gql'
+                    }
+                }
             }
         }
     	stage('Docker Containerization') {
@@ -61,6 +76,21 @@ pipeline {
                 stage('search-service') {
                     steps {
                         sh 'docker build -t vid-search -f Dockerfile --target vid-search .'
+                    }
+                }
+                stage('auth-service') {
+                    steps {
+                        sh 'docker build -t vid-auth -f Dockerfile --target vid-auth .'
+                    }
+                }
+                stage('user-service') {
+                    steps {
+                        sh 'docker build -t vid-user -f Dockerfile --target vid-user .'
+                    }
+                }
+                stage('user-gql-service') {
+                    steps {
+                        sh 'docker build -t vid-user-gql -f Dockerfile --target vid-user-gql .'
                     }
                 }
             }
