@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vid-user-gql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vid-user-gql
+  template:
+    metadata:
+      labels:
+        app: vid-user-gql
+    spec:
+      containers:
+        - name: vid-user-gql
+          image: vid-user-gql:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3010
+          envFrom:
+            - configMapRef:
+                name: env-variables-k8

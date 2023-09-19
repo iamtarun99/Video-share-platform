@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vid-user-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vid-user
+  template:
+    metadata:
+      labels:
+        app: vid-user
+    spec:
+      containers:
+        - name: vid-user
+          image: vid-user:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3005
+          envFrom:
+            - configMapRef:
+                name: env-variables-k8

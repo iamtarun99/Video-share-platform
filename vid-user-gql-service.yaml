@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vid-user-gql-service
+spec:
+  selector:
+    app: vid-user-gql
+  ports:
+    - protocol: TCP
+      port: 3010  # Expose port 3010 for accessing vid-user-gql
+      targetPort: 3010  # Use 3010 as the targetPort to match the containerPort of vid-user-gql
+  type: LoadBalancer

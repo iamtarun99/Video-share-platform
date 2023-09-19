@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vid-user-service
+spec:
+  selector:
+    app: vid-user
+  ports:
+    - protocol: TCP
+      port: 3005  # Expose port 3005 for accessing vid-user
+      targetPort: 3005  # Use 3005 as the targetPort to match the containerPort of vid-user
+  type: LoadBalancer
