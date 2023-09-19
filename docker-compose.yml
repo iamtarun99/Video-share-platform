@@ -29,5 +29,34 @@ services:
     networks:
       - vid-network
 
+  vid-auth:
+    image: vid-auth
+    ports:
+      - "3008:3008"
+      - "3009:3009"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
+  vid-user:
+    image: vid-user
+    ports:
+      - "3005:3005"
+      - "3006:3006"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
+  vid-user-gql:
+    image: vid-user-gql
+    ports:
+      - "3010:3010"
+    env_file:
+      - .env
+    networks:
+      - vid-network
+
 networks:
   vid-network:

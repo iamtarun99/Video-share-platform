@@ -1,0 +1,13 @@
+# schema.graphql
+
+type User {
+  firstName: String
+  lastName: String
+  userId: String
+  email: String
+}
+
+type Query {
+    users: [User]
+    user(userId: String!): User
+}

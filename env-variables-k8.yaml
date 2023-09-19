@@ -7,6 +7,8 @@ metadata:
 data:
   DB_USERNAME: ''
   DB_PASSWORD: ''
-  HOSTNAME_BROWSE_SERVICE: 'vid-browse-service' #In docker use container name. In k8, use k8 service name. use localhost for running in local
-  HOSTNAME_SEARCH_SERVICE: 'vid-search-service' #This is container name which gets dynamically resolved to IP address. use localhost for running in local
-  # Add more environment variables as needed
+  HOSTNAME_BROWSE_SERVICE: 'vid-browse-service' #In docker use container name. In k8, use k8 service name. use vid-browse-service for running in local
+  HOSTNAME_SEARCH_SERVICE: 'vid-search-service' #This is container name which gets dynamically resolved to IP address. use vid-browse-service for running in local
+  HOSTNAME_AUTH_SERVICE: 'vid-auth-service'
+  HOSTNAME_USER_SERVICE: 'vid-user-service'
+  HOSTNAME_USER_GQL_SERVICE: 'vid-user-gql-service'

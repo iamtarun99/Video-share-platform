@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth-module/auth.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { ConfigModule } from '@nestjs/config';
           port: 3002,
         },
       },
-    ])
+    ]),
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -36,6 +36,33 @@
       "compilerOptions": {
         "tsConfigPath": "apps/vid-search/tsconfig.app.json"
       }
+    },
+    "vid-auth": {
+      "type": "application",
+      "root": "apps/vid-auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-auth/tsconfig.app.json"
+      }
+    },
+    "vid-user": {
+      "type": "application",
+      "root": "apps/vid-user",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-user/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-user/tsconfig.app.json"
+      }
+    },
+    "vid-user-gql": {
+      "type": "application",
+      "root": "apps/vid-user-gql",
+      "entryFile": "main",
+      "sourceRoot": "apps/vid-user-gql/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vid-user-gql/tsconfig.app.json"
+      }
     }
   }
 }
