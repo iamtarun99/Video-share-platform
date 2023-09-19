@@ -14,6 +14,40 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Test') {
+            parallel {
+                stage('gateway') {
+                    steps {
+                        sh 'npm run test'
+                    }
+                }
+                stage('browse-service') {
+                    steps {
+                        sh 'npm run test vid-browse'
+                    }
+                }
+                stage('search-service') {
+                    steps {
+                        sh 'npm run test vid-search'
+                    }
+                }
+                stage('auth-service') {
+                    steps {
+                        sh 'npm run test vid-auth'
+                    }
+                }
+                stage('user-service') {
+                    steps {
+                        sh 'npm run test vid-user'
+                    }
+                }
+                stage('user-gql-service') {
+                    steps {
+                        sh 'npm run test vid-user-gql'
+                    }
+                }
+            }
+        }
         stage('SonarQube analysis') {
         	environment {
             	scannerHome = tool 'sonar-scanner'
