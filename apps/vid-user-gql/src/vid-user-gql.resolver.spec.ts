@@ -1,22 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { VidUserGqlController } from './vid-user-gql.resolver';
+import { VidUserGqlResolver } from './vid-user-gql.resolver';
 import { VidUserGqlService } from './vid-user-gql.service';
+import { getModelToken } from '@nestjs/mongoose';
 
-describe('VidUserGqlController', () => {
-  let vidUserGqlController: VidUserGqlController;
+describe('VidUserGqlResolver', () => {
+  let vidUserGqlResolver: VidUserGqlResolver;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [VidUserGqlController],
-      providers: [VidUserGqlService],
+      controllers: [],
+      providers: [VidUserGqlResolver, VidUserGqlService, {provide: getModelToken('User'), useValue: []}],
     }).compile();
+    vidUserGqlResolver = app.get<VidUserGqlResolver>(VidUserGqlResolver);
 
-    vidUserGqlController = app.get<VidUserGqlController>(VidUserGqlController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(vidUserGqlController.getHello()).toBe('Hello World!');
+  describe('Vid user gql', () => {
+    it('should define', () => {
+      expect(vidUserGqlResolver).toBeDefined();
     });
   });
 });

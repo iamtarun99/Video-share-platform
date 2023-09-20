@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { VidUserController } from './vid-user.controller';
 import { VidUserService } from './vid-user.service';
+import { getModelToken } from '@nestjs/mongoose';
 
 describe('VidUserController', () => {
   let vidUserController: VidUserController;
@@ -8,7 +9,7 @@ describe('VidUserController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [VidUserController],
-      providers: [VidUserService],
+      providers: [VidUserService, {provide: getModelToken('User'), useValue: []}],
     }).compile();
 
     vidUserController = app.get<VidUserController>(VidUserController);

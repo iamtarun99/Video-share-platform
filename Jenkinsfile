@@ -18,7 +18,7 @@ pipeline {
             parallel {
                 stage('gateway') {
                     steps {
-                        sh 'npm run test'
+                        sh 'npm run test vid-gateway'
                     }
                 }
                 stage('browse-service') {
