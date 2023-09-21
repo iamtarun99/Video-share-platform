@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { VidSearchService } from './vid-search.service';
 import { Video } from './dtos/video-search.dto';
 import { MessagePattern } from '@nestjs/microservices';
