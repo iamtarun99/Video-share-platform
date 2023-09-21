@@ -67,5 +67,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --production
 COPY dist/apps/vid-user-gql ./vid-user-gql
+COPY apps/vid-user-gql/src/**/*.graphql ./vid-user-gql
 CMD ["node", "vid-user-gql/main"]
 EXPOSE 3010

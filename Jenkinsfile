@@ -15,37 +15,8 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel {
-                stage('gateway') {
-                    steps {
-                        sh 'npm run test vid-gateway'
-                    }
-                }
-                stage('browse-service') {
-                    steps {
-                        sh 'npm run test vid-browse'
-                    }
-                }
-                stage('search-service') {
-                    steps {
-                        sh 'npm run test vid-search'
-                    }
-                }
-                stage('auth-service') {
-                    steps {
-                        sh 'npm run test vid-auth'
-                    }
-                }
-                stage('user-service') {
-                    steps {
-                        sh 'npm run test vid-user'
-                    }
-                }
-                stage('user-gql-service') {
-                    steps {
-                        sh 'npm run test vid-user-gql'
-                    }
-                }
+            steps {
+                sh 'npm run test:cov'
             }
         }
         stage('SonarQube analysis') {
@@ -54,9 +25,7 @@ pipeline {
         	}
 			steps {
 				withSonarQubeEnv('Sonarqube Scanner') {
-					sh '''
-					${scannerHome}/bin/sonar-scanner \
-					'''
+					sh '${scannerHome}/bin/sonar-scanner'
 				}
 			}
     	}
