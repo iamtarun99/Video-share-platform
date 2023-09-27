@@ -10,6 +10,7 @@ export class VidUserGqlResolver {
   async getUsers(): Promise<User[]> {
     return this.vidUserGqlService.findAll();
   }
+  // Learn Subscription
 
   @Query('user')
   async getUser(@Args('userId', { type: () => String }) userId: string): Promise<User> {
